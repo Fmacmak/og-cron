@@ -23,13 +23,13 @@ export default async function handler(req: NextRequest) {
 
 		return new ImageResponse(
 			(
-				<div tw='bg-[#F6F6F0] text-black h-full w-full flex items-center justify-center'>
-					<div tw='flex flex-col justify-center items-center w-1/2 h-full'>
+				<div tw='bg-[#F6F6F0] text-black h-full w-full flex items-center justify-center rounded-md'>
+					<div tw='flex flex-col justify-center items-center w-1/2 h-full rounded'>
 						<img
 							src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Y_Combinator_logo.svg/512px-Y_Combinator_logo.svg.png?20161016225220'
-							tw='h-32 w-32'
+							tw='h-32 w-32 rounded-md'
 						/>
-						<p tw='text-xl'>Top Stories</p>
+						<p tw='text-xl'>Top Stories ❤️🤨🤪 </p>
 						<p tw='text-lg -mt-4 text-[#828282]'>As of {lastUpdated} (PST)</p>
 					</div>
 					<div tw='flex justify-center items-center w-1/2 h-full'>
@@ -37,8 +37,8 @@ export default async function handler(req: NextRequest) {
 							{topStories.map((item) => {
 								return (
 									<div key={item.id} tw='flex flex-col mb-4'>
-										<h1 tw='text-3xl font-bold'>{item.title}</h1>
-										<p tw='text-xl mt-2 text-[#858585]'>
+										<h1 tw='text-xl font-bold'>{item.title}</h1>
+										<p tw='text-lg mt-2 text-[#858585]'>
 											{item.score} points by {item.by}
 										</p>
 									</div>
@@ -49,11 +49,13 @@ export default async function handler(req: NextRequest) {
 				</div>
 			),
 			{
-				width: 1200,
+				width: 1000,
 				height: 630,
 				headers: {
 					'Cache-Control': 'no-cache, no-store',
 				},
+				emoji: 'noto',
+				
 			}
 		);
 	} catch (e: any) {
